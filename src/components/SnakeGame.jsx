@@ -63,7 +63,7 @@ const SnakeGame = () => {
     });
   }, [direction, food, score]);
 
-  useGameLoop(moveSnake, isGameOver);
+  useGameLoop(moveSnake, isGameOver, score);
 
   const handleKeyPress = useCallback((event) => {
     // Prevent default behavior for arrow keys
