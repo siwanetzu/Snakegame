@@ -1,7 +1,7 @@
 import { useEffect, useRef } from 'react';
 import { BOARD_SIZE, CELL_SIZE, FOOD_TYPES } from '../utils/gameUtils';
 
-const GameBoard = ({ snake, food, isGameOver, foodEaten }) => {
+const GameBoard = ({ snake, food, isGameOver, foodEaten, obstacles = [], portals = [] }) => {
   const canvasRef = useRef(null);
   const animationRef = useRef(null);
 
@@ -56,6 +56,18 @@ const GameBoard = ({ snake, food, isGameOver, foodEaten }) => {
         animateGameOver(ctx);
       }
 
+      // Draw obstacles
+      ctx.fillStyle = '#666666';
+      obstacles.forEach(({ x, y }) => {
+        drawCell(ctx, x, y, '#666666');
+      });
+
+      // Draw portals
+      portals.forEach(portal => {
+        drawCell(ctx, portal.entrance.x, portal.entrance.y, '#9C27B0');
+        drawCell(ctx, portal.exit.x, portal.exit.y, '#9C27B0');
+      });
+
       animationRef.current = requestAnimationFrame(animate);
     };
 
@@ -66,7 +78,7 @@ const GameBoard = ({ snake, food, isGameOver, foodEaten }) => {
         cancelAnimationFrame(animationRef.current);
       }
     };
-  }, [snake, food, isGameOver]);
+  }, [snake, food, isGameOver, obstacles, portals]);
 
   return (
     <canvas

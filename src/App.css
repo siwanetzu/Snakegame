@@ -20,28 +20,55 @@
 }
 
 .game-over {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background-color: rgba(0, 0, 0, 0.8);
-  padding: 20px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.game-over > div {
+  background: rgba(0, 0, 0, 0.9);
+  padding: 30px;
   border-radius: 10px;
   text-align: center;
+}
+
+.game-over h2 {
+  margin: 0 0 20px 0;
+  color: white;
 }
 
 .game-over button {
   padding: 10px 20px;
   font-size: 1.2rem;
-  cursor: pointer;
-  background-color: #4CAF50;
-  color: white;
   border: none;
   border-radius: 5px;
+  cursor: pointer;
+  background: #2196F3;
+  color: white;
+  transition: all 0.3s ease;
+  margin-top: 20px;
 }
 
 .game-over button:hover {
-  background-color: #45a049;
+  filter: brightness(1.2);
+}
+
+.game-over h3 {
+  color: #ffd700;
+  animation: pulse 1s infinite;
+}
+
+.game-over p {
+  color: white;
+  font-size: 1.2rem;
+  margin: 10px 0;
 }
 
 @keyframes pulse {

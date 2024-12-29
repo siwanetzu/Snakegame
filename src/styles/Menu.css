@@ -1,0 +1,81 @@
+.menu {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  padding: 20px;
+}
+
+.menu-content {
+  background: rgba(0, 0, 0, 0.8);
+  padding: 30px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  min-width: 300px;
+}
+
+.name-input {
+  padding: 10px;
+  font-size: 1.2rem;
+  border-radius: 5px;
+  border: none;
+  background: #333;
+  color: white;
+}
+
+.mode-selection {
+  text-align: center;
+}
+
+.mode-buttons {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.mode-buttons button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  background: #444;
+  color: white;
+  transition: all 0.3s ease;
+}
+
+.mode-buttons button.selected {
+  background: #4CAF50;
+}
+
+.start-button, .leaderboard-button {
+  width: 100%;
+  padding: 15px;
+  font-size: 1.2rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.start-button {
+  background: #4CAF50;
+  color: white;
+}
+
+.start-button:disabled {
+  background: #666;
+  cursor: not-allowed;
+}
+
+.leaderboard-button {
+  background: #2196F3;
+  color: white;
+}
+
+.start-button:hover:not(:disabled),
+.leaderboard-button:hover {
+  filter: brightness(1.2);
+} 
